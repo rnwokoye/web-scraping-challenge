@@ -16,14 +16,14 @@
         <section class="row">
             <div class="col-sm-12">
                 <h1 class="main-heading">Latest Mars News</h1>
-                <h4 class="sub-headings">{{ my_dict_data.get('headlines')}}</h4>
-                <p class="paragraph-text">{{ my_dict_data.get('text') }}</p>
+                <h4 class="sub-headings">{{ my_dict_data.headlines }}</h4>
+                <p class="paragraph-text">{{ my_dict_data.text }}</p>
             </div>
         </section>
         <section class="row">
             <div class="col-sm-8">
                 <h3 class=sub-headings>Featured Mars Image</h3>
-                <img src="{{ my_dict_data.get('main_image') }}" alt="Featured Image" width="600px">
+                <img src="{{ my_dict_data.main_image }}" alt="Featured Image" width="600px">
             </div>
             <div class="col-sm-4">
                 <h4 class="sub-headings">Mars facts</h4>
@@ -35,7 +35,7 @@
                             <th>Earth</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <!-- <tbody>
                         <tr>
                             <td>Mars-Earth Comparison</td>
                             <td>Mars</td>
@@ -71,7 +71,7 @@
                             <td>{{ my_dict_data['facts'][5]['Mars']}}</td>
                             <td>{{ my_dict_data['facts'][5]['Earth']}}</td>
                         </tr>
-                    </tbody>
+                    </tbody> -->
                 </table>
             </div>
         </section>

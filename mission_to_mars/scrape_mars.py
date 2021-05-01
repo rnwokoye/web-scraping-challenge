@@ -46,13 +46,14 @@ def scrape():
     header_row0 = 0
     df1.columns = df1.iloc[header_row0]
     df1.drop(header_row0, inplace=True)
-    df1.set_index('Mars - Earth Comparison', inplace=True)
+    df3 = df1.set_index('Mars - Earth Comparison')
 
-    df2 = facts[1]
-    header_row1 = 0
-    df2.columns = df2.iloc[header_row1]
-    df2.drop(header_row1, inplace=True)
-    df2.set_index('Equatorial Diameter:', inplace=True)
+
+    # df2 = facts[1]
+    # header_row1 = 0
+    # df2.columns = df2.iloc[header_row1]
+    # df2.drop(header_row1, inplace=True)
+    # df4 = df2.set_index('Equatorial Diameter:')
 
 
     # Hermisphere data
@@ -83,7 +84,7 @@ def scrape():
     all_data['headlines'] = news_headline
     all_data['text'] = news_text
     all_data['hermisphere'] = dict_list
-    all_data['facts'] = df1.to_dict('records')
+    all_data['facts'] = df3.to_dict('records')
 
     return all_data
 

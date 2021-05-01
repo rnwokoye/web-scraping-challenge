@@ -19,14 +19,14 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/visit_mars_app")
 @app.route("/")
 def index():
 
-    mars_data = mongo.db.mars_data_collection.find()
-    for data in mars_data:
-        data_res = data
+    data_res = mongo.db.mars_data_collection.find_one()
+    
+    # mars_data = mongo.db.mars_data_collection.find()
+    # for data in mars_data:
+    #     data_res = data
 
-    #team_list = ["Jumpers", "Dunkers", "Dribblers", "Passers"]
+    
     return render_template("index.html", my_dict_data=data_res)
-
-
 
 
 @app.route("/scrape")
