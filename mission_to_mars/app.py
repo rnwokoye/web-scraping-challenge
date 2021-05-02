@@ -21,11 +21,6 @@ def index():
 
     data_res = mongo.db.mars_data_collection.find_one()
     
-    # mars_data = mongo.db.mars_data_collection.find()
-    # for data in mars_data:
-    #     data_res = data
-
-    
     return render_template("index.html", my_dict_data=data_res)
 
 

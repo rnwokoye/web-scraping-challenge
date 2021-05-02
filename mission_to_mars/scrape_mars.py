@@ -42,18 +42,11 @@ def scrape():
     soup = bs(mars_facts_html, 'html.parser')
 
     facts = pd.read_html(mars_facts_html)
-    df1 = facts[0]
+    df = facts[0]
     header_row0 = 0
-    df1.columns = df1.iloc[header_row0]
-    df1.drop(header_row0, inplace=True)
-    df3 = df1.set_index('Mars - Earth Comparison')
-
-
-    # df2 = facts[1]
-    # header_row1 = 0
-    # df2.columns = df2.iloc[header_row1]
-    # df2.drop(header_row1, inplace=True)
-    # df4 = df2.set_index('Equatorial Diameter:')
+    df.columns = df.iloc[header_row0]
+    df.drop(header_row0, inplace=True)
+    df.rename(columns={'Mars - Earth Comparison': 'Comparison'}, inplace=True)
 
 
     # Hermisphere data
@@ -62,7 +55,6 @@ def scrape():
     html = browser.html
     soup = bs(html, 'html.parser')
     links = soup.find_all('a', class_='itemLink product-item')
-
 
     for i in range(1, len(links),2):
         mydict= {}
@@ -84,7 +76,7 @@ def scrape():
     all_data['headlines'] = news_headline
     all_data['text'] = news_text
     all_data['hermisphere'] = dict_list
-    all_data['facts'] = df3.to_dict('records')
+    all_data['facts'] = df.to_dict('records')
 
     return all_data
 
